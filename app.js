@@ -8,12 +8,13 @@ app.use("/post", ()=>{
     console.log("We are using a midleware");
 });
 
-//ROUTES
-app.get('/',(req, res)=>{
-    res.send("Hello fellow Nigerians")
-})
+//Import Routes
+const postRoute = require("./routes/posts")
 
-app.get("/post", (req, res) => {
+//ROUTES
+app.use('/posts', postRoute)
+
+app.get("/", (req, res) => {
   res.send("This is my new post");
 });
 
